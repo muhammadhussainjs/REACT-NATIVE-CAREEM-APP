@@ -44,22 +44,29 @@ function CarSelection({ route }) {
 
     return <View>
 
-        <Text style={{fontSize: 18}}>Pickup: {pickup.name}, {pickup.location.address}</Text>
-        <Text style={{fontSize: 18}}>Destination: {destination.name}, {destination.location.address}</Text>
-        <Text style={{fontSize: 28 , alignItems: 'center', color: 'red' , textAlign: 'center'}}> PLEASE SELECT VEHICLE
+<Text style={{ fontSize: 16, marginTop: 12, marginBottom: 12, paddingLeft: 6 }}>
+  <Text style={{ fontWeight: 'bold', color: 'blue' }}>Pickup:</Text> {pickup.name}, {pickup.location.address}
 </Text>
 
-        <View style={{ marginTop:15}}>
+        <Text style={{fontSize: 16 , marginBottom : 12 , paddingLeft:6}}><Text style={{ fontWeight: 'bold', color: 'blue' }}>Destination:</Text>{destination.name}, {destination.location.address}</Text>
+        <Text style={{fontSize: 28 , alignItems: 'center', color: 'black' , textAlign: 'center'}}> PLEASE SELECT VEHICLE
+</Text>
+
+        <View style={{ marginTop:5 , display: 'flex' , justifyContent: 'center' , gap:5 , marginLeft: 70}}>
         <TouchableOpacity onPress={() => checkFare('bike')}>
-        <Image source={require('../assets/bike.webp')} style={{width:'full' , height:150}}/>
+        <Image source={require('../assets/bike.webp')} style={{width: 200 , height:120}}/>
+        <Text style={{ fontSize: 22, paddingLeft: 80 ,  fontWeight: 'bold' , paddingTop: 2 }}>Bike</Text>
+       
         </TouchableOpacity>
         
         <TouchableOpacity onPress={() => checkFare('car')}>
-        <Image source={require('../assets/carr.webp')} style={{width:'full' , height:150}}/>
+        <Image source={require('../assets/carr.webp')} style={{width:200 , height:120}}/>
+        <Text style={{ fontSize: 22, paddingLeft: 80 ,  fontWeight: 'bold' , paddingTop: 2 }}>Car</Text>
         </TouchableOpacity>
         
         <TouchableOpacity onPress={() => checkFare('rikshaw')}>
-        <Image source={require('../assets/rikshaw.jpg')} style={{width:'full' , height:150}}/>
+        <Image source={require('../assets/rikshaw.jpg')} style={{width:200 , height:120}}/>
+        <Text style={{ fontSize: 22, paddingLeft: 80 ,  fontWeight: 'bold' , paddingTop: 2 }}>Rikshaw</Text>
         </TouchableOpacity>
         
  </View>      

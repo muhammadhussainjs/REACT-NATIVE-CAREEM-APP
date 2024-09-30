@@ -17,7 +17,7 @@ function MainNavigator() {
         <NavigationContainer>
             <Drawer.Navigator>
                 <Drawer.Screen name="Dashboard" component={DashboardStack} />
-                <Drawer.Screen name="Ride History hai" component={RideHistoryStack} />
+                <Drawer.Screen name="Ride History" component={RideHistoryStack} />
             </Drawer.Navigator>
         </NavigationContainer>
     );

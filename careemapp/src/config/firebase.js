@@ -24,8 +24,11 @@ async function requestARide(rideRequest) {
         ...rideRequest,
         timestamp: Date.now()
     });
+    setTimeout(()=>{
+
+        alert("Ride requested successfully! Let's wait for the driver")
+    }, 1000)
     
-    alert("Ride requested successfully! Let's wait for the driver")
 }
 
 export {

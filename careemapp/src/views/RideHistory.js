@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button , ScrollView } from 'react-native';
 import { collection, getDocs  } from 'firebase/firestore';
 import db from '../config/firebase';
 
@@ -21,30 +21,32 @@ function RideHistory({ navigation }) {
   }
   useEffect(()=>{
 fetchData()
-  },[])
+  },[data])
   return (
-    <View>
-      <Text style={{fontSize: 18}}>Here RideHistory will come</Text>
+    <ScrollView>
+
+      <Text style={{fontSize: 28 , marginLeft: 100 , marginTop:20 , font: 'bold' , color: 'blue'}}>RideHistory</Text>
       {/* <Button title="Detail" onPress={() => navigation.navigate('RideHistoryDetail')} /> */}
       {data.length > 0 ? (
       data.map((item, index) => (
-        <View key={index} style={{marginTop: 20 , alignItems: 'center' , 
-         borderRadius: 10 ,borderColor: 'black',  borderWidth: 1 }}>
-           <Text style={{fontSize: 18}}>Car Type: {item.carType}</Text>
-      <Text style={{fontSize: 18}}>Fare: {item.fare}</Text>
-      <Text style={{fontSize: 18}}>Pickup Location: {item.pickup.name}</Text>
-      <Text style={{fontSize: 18}}>Pickup Location Address: {item.pickup.location.formatted_address}</Text>
-      <Text style={{fontSize: 18}}>Distance to Pickup: {item.pickup.distance}</Text>
-      <Text style={{fontSize: 18}}>Destination: {item.destination.name}</Text>
-      <Text style={{fontSize: 18}}>Destination Address: {item.destination.location.formatted_address}</Text>
-      <Text style={{fontSize: 18}}>Distance to Destination: {item.destination.distance}</Text>
+        <View key={index} style={{marginTop: 20, paddingLeft:8 , paddingBottom:4 , paddingTop:4 , gap:6,
+         borderRadius: 10 ,borderColor: 'lblack',  borderWidth: 1 , marginLeft: 12 , marginRight:12  , marginBottom:20}}>
+           <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Car Type:</Text> {item.carType}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Fare:</Text> {item.fare}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Pickup Location:</Text> {item.pickup.name}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Pickup Location Adress:</Text> {item.pickup.location.formatted_address}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Distance to Pickup</Text> {item.pickup.distance}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Destination:</Text> {item.destination.name}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Destination Address:</Text> {item.destination.location.formatted_address}</Text>
+      <Text style={{fontSize: 18}}><Text style={{ fontWeight: 'bold' }}>Distance to Destination:</Text> {item.destination.distance}</Text>
           
         </View>
       ))
     ) : (
-      <Text>Loading...</Text>
+      <Text style={{fontSize: 28 , marginLeft: 100 , marginTop:20 , font: 'bold'}} >Loading...</Text>
     )}
-  </View>
+  
+</ScrollView>
 );
 }
 

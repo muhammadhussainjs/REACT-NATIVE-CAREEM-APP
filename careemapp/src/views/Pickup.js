@@ -33,7 +33,7 @@ function Pickup({ navigation }) {
     }, []);
 
     if (!location) {
-        return <Text>{errorMsg || "Location needs your permission"}</Text>
+        return <Text style={{textAlign: 'center' , marginTop: 20, fontSize: 20}}>{errorMsg || "Location needs your permission"}</Text>
     }
 
     const search = (text) => {
@@ -88,14 +88,17 @@ function Pickup({ navigation }) {
                 />
             {places.map(item => {
                 return <TouchableOpacity onPress={() => {setPickup(item) 
-                 setSearchText(item.name + ', ' + item.location.address); } }>
+                 setSearchText(item.name + ', ' + item.location.address); setPlaces([]) } }>
                     <Text>{item.name}, {item.location.address}</Text>
                 </TouchableOpacity>
             })}
         </View>
-        <Button title="Select Destination"
-            onPress={() => navigation.navigate('Destination', { pickup })}
-        />
+        <TouchableOpacity
+      style={{ padding: 20, marginTop: 15 , paddingLeft:90 , paddingRight:90, backgroundColor: 'lightgreen', borderRadius: 10 }}
+      onPress={() => navigation.navigate('Destination', { pickup })}
+    >
+      <Text style={{ color: 'black', fontSize: 20 }}>Select Destination</Text>
+    </TouchableOpacity>
     </View>
 }
 
@@ -116,8 +119,13 @@ const styles = StyleSheet.create({
     search: {
         backgroundColor: 'white',
         height: 50,
-        width: '100%'
+        width: '100%', 
+        paddingLeft: 12,
+        padding:10,
+        backgroundColor:'white',
+        fontSize:16
     }
+   
 });
 
 //fsq3UH1aKeT8Z1GxT3r1CCuN9rTR5sB+n8/JH9JqNuSdsJs=
